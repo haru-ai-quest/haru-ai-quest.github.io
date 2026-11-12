@@ -4,47 +4,88 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>特典の受け取り</title>
+<title>はる式 AI×インスタ攻略 オーダーメイド相談会</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  /* 凍結したら、下の a の href だけ現行アカウントのリンクに差し替える */
+  /* 動画の画面内QRコードの飛び先。中身は概要欄・プロフィール用LP（utage-system.com/p/uqGpWPjJ7sU2）と同じ形。
+     凍結したら、下の2つの a.cta の href だけ現行アカウントのリンクに差し替える（登録経路は「画面内QRコード」） */
   *{box-sizing:border-box}
-  html,body{margin:0;background:#fff}
-  body{font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans",Meiryo,sans-serif;-webkit-text-size-adjust:100%}
-  .wrap{display:block;max-width:480px;margin:0 auto;padding:16px;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
-  .card{display:block;overflow:hidden;border-radius:14px}
-  .card img{display:block;width:100%;height:auto}
-  .band{display:block;padding:9px 8px;background:#22348F;color:#fff;font-size:min(4.4vw,19px);line-height:1.3;text-align:center;letter-spacing:.02em}
-  .btn{position:relative;display:flex;align-items:center;gap:min(2.4vw,12px);margin-top:20px;padding:min(2.4vw,12px) min(3.2vw,16px);border:2px solid #05702B;border-radius:999px;
-    background:linear-gradient(180deg,#4BE07F 0%,#17C95A 48%,#0BB84C 52%,#0AAE46 100%);
-    box-shadow:inset 0 0 0 3px rgba(255,255,255,.85),0 5px 0 #056A29,0 9px 14px rgba(0,0,0,.2)}
-  .wrap:active .btn{transform:translateY(3px);box-shadow:inset 0 0 0 3px rgba(255,255,255,.85),0 2px 0 #056A29,0 4px 8px rgba(0,0,0,.2)}
-  .icon{flex:none;width:min(13.5vw,62px);height:min(13.5vw,62px)}
-  .txt{flex:1;min-width:0;text-align:center;line-height:1.25}
-  .txt span{display:block;white-space:nowrap}
-  .sub{color:#fff;font-size:min(4.5vw,21px);text-shadow:0 1px 2px rgba(0,80,30,.7)}
-  .main{margin-top:2px;color:#FFEE58;font-size:min(5vw,23px);text-shadow:0 2px 0 #056A29,0 0 3px rgba(0,80,30,.8)}
+  html,body{margin:0}
+  body{font-family:"Noto Sans JP","Hiragino Sans",Meiryo,sans-serif;color:#0f1f45;-webkit-text-size-adjust:100%;
+    background:#f5f6fd;background-image:linear-gradient(rgba(120,130,200,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(120,130,200,.09) 1px,transparent 1px);background-size:22px 22px}
+  .page{max-width:680px;margin:0 auto;background:rgba(255,255,255,.55)}
+  img{display:block;max-width:100%;height:auto}
+  .pad{padding:0 16px}
+  .hero{padding:16px 16px 4px}
+  .lead{margin:18px 0 6px;text-align:center;font-weight:700;font-size:15px}
+  .cta{display:block;margin:0 auto;max-width:560px;transition:transform .12s;-webkit-tap-highlight-color:transparent}
+  .cta:active{transform:translateY(3px)}
+  .free{margin:6px 0 0;text-align:center;color:#6b7388;font-size:12px}
+  .bar{margin:30px 0 0;padding:14px 12px;background:#0f1f45;color:#fff;text-align:center;font-size:clamp(20px,5.4vw,27px);font-weight:900;border-bottom:3px solid #d8449a}
+  .pk{color:#d8449a}
+  .worry{display:flex;align-items:center;gap:14px;padding:22px 16px 6px}
+  .worry .face{flex:0 0 32%;max-width:190px}
+  .worry ul{flex:1;list-style:none;margin:0;padding:0;display:grid;gap:12px}
+  .worry li{display:flex;gap:9px;align-items:flex-start;background:#fff;border-radius:12px;padding:12px 13px;box-shadow:0 4px 14px rgba(40,50,120,.08);font-weight:700;font-size:clamp(14px,3.8vw,17px);line-height:1.55}
+  .chk{flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:linear-gradient(135deg,#5fb3ff,#9a6dff 55%,#ff6fb5);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:900}
+  h2{margin:30px 16px 14px;text-align:center;font-size:clamp(20px,5.4vw,26px);font-weight:900}
+  .gets{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 16px}
+  .gets div{background:#fff;border-radius:12px;padding:14px 6px 16px;text-align:center;box-shadow:0 4px 14px rgba(40,50,120,.08);font-weight:700;font-size:13px;line-height:1.6}
+  .num{display:inline-grid;place-items:center;width:30px;height:30px;margin-bottom:8px;border-radius:50%;background:linear-gradient(135deg,#5fb3ff,#9a6dff 55%,#ff6fb5);color:#fff;font-weight:900;font-size:13px}
+  .how{margin:30px 16px 12px;text-align:center;font-size:clamp(18px,5vw,23px);font-weight:900}
+  .steps{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 8px;margin:0 16px;padding:12px;background:#fff;border-radius:12px;box-shadow:0 4px 14px rgba(40,50,120,.08);font-weight:700;font-size:14px}
+  .st{display:inline-block;padding:3px 10px;margin-right:6px;border-radius:999px;background:linear-gradient(135deg,#5fb3ff,#9a6dff 55%,#ff6fb5);color:#fff;font-size:11px;font-weight:900}
+  .arw{color:#9a6dff;font-weight:900}
+  .end{padding-bottom:36px}
+  @media (max-width:520px){
+    .gets{grid-template-columns:repeat(2,1fr)}
+    .steps{flex-direction:column}
+    .steps .arw{transform:rotate(90deg)}
+  }
 </style>
 </head>
 <body>
-<a class="wrap" href="https://utage-system.com/line/open/DAMdvsTr8NSN">
-  <span class="card">
-    <img src="thumb.jpg" width="1000" height="563" alt="YouTube視聴者限定！キーワード特典＆公式LINE限定スペシャル企画のお受け取りはこちら">
-    <span class="band">&#11015; 特典の受け取りは以下のボタンから &#11015;</span>
-  </span>
-  <span class="btn">
-    <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="32" cy="32" r="31" fill="#fff"/>
-      <path fill="#06C755" d="M32 12c-12.700 0-23 8.300-23 18.600 0 9.200 8.200 16.900 19.200 18.300.8.200 1.800.500 2 1.200.2.600.1 1.500.1 2.100l-.3 2c-.1.600-.5 2.300 2 1.300s13.200-7.800 18-13.300c3.300-3.600 5-7.300 5-11.600C55 20.300 44.700 12 32 12z"/>
-      <text x="32" y="35.500" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12.500" font-weight="900" fill="#fff">LINE</text>
-    </svg>
-    <span class="txt">
-      <span class="sub">特典の受け取り＆</span>
-      <span class="main">公式LINE限定企画はこちら</span>
-    </span>
-  </span>
-</a>
+<div class="page">
+  <div class="hero"><img src="hero.png" width="875" height="517" alt="本業と家庭があって1日1〜2時間の人向け。その編集、もう全部AIに任せられます。動画編集なし・実績なし・映えなし、会社員でも、パパでも始められるAI×インスタのオーダーメイド相談会を無料でお届けいたします！"></div>
+
+  <div class="pad">
+    <p class="lead">＼ タップしてLINEに追加するだけ！ ／</p>
+    <a class="cta" href="https://utage-system.com/line/open/DAMdvsTr8NSN?mtid=Oefo9iJU6w9x"><img src="btn.png" width="875" height="114" alt="LINE 無料で攻略本の続きを受け取る"></a>
+    <p class="free">※登録・受け取りは完全無料です</p>
+  </div>
+
+  <div class="bar">こんな悩み、ありませんか？</div>
+  <div class="worry">
+    <img class="face" src="haru.png" width="225" height="310" alt="">
+    <ul>
+      <li><span class="chk">✓</span><span>編集に時間がかかって、<span class="pk">投稿が続かない</span>…</span></li>
+      <li><span class="chk">✓</span><span>AIは触っているけど、<span class="pk">エンタメ終わり</span>でお金にならない…</span></li>
+      <li><span class="chk">✓</span><span>残業を増やさずに、まずは<span class="pk">月5万</span>ほしい…</span></li>
+    </ul>
+  </div>
+
+  <h2>この攻略本で<span class="pk">得られること</span></h2>
+  <div class="gets">
+    <div><span class="num">01</span><br><span class="pk">顔出しなし・実績ゼロ</span><br>でも始められる<br>手順が<br>わかる！</div>
+    <div><span class="num">02</span><br>毎晩2時間の編集が<br><span class="pk">手作業10分</span>に<br>なる流れが<br>わかる！</div>
+    <div><span class="num">03</span><br>自分の商品がなくても<br>紹介だけで<br><span class="pk">月5万</span>を<br>目指せる！</div>
+    <div><span class="num">04</span><br><span class="pk">URLを貼るだけ</span>で<br>AIがリールの<br>台本を1本<br>書き上げる仕組み</div>
+  </div>
+
+  <p class="how">＼ 受け取り方法は<span class="pk">カンタン</span>！ ／</p>
+  <div class="steps">
+    <span><span class="st">STEP 1</span>LINEに追加</span><span class="arw">→</span>
+    <span><span class="st">STEP 2</span>キーワードを送るだけ</span><span class="arw">→</span>
+    <span><span class="st">STEP 3</span>すぐに続きをお届けします！</span>
+  </div>
+
+  <div class="pad end">
+    <p class="lead" style="margin-top:28px">＼ 登録はたった<span class="pk">10秒</span>！ ／</p>
+    <a class="cta" href="https://utage-system.com/line/open/DAMdvsTr8NSN?mtid=Oefo9iJU6w9x"><img src="btn.png" width="875" height="114" alt="LINE 無料で攻略本の続きを受け取る"></a>
+    <p class="free">※登録・受け取りは完全無料です</p>
+  </div>
+</div>
 </body>
 </html>
